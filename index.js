@@ -33,7 +33,7 @@ io.on('connection', socket => {
   
   socket.on('updateLocation', pos => {
     const { lat: initLat, lng: initLng} = locationMap.get(socket.id)
-    if (geolib.isPointWithinRadius({ latitude: pos.lat, longitude: pos.lng }, { latitude: initLat, longitude: initLng}, 10)) {
+    if (geolib.isPointWithinRadius({ latitude: pos.lat, longitude: pos.lng }, { latitude: initLat, longitude: initLng}, 200)) {
       isUserAlerted = false
     } else {
       if (!isUserAlerted) {
